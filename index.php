@@ -20,8 +20,7 @@
     'manage_options',
     'ozone',
     'theme_option_page'
-); 
- }
+);
 
  function ozone_init() {
      wp_enqueue_script('bootstrap-js', plugins_url('/assets/js/bootstrap.min.js', __FILE__), '4.0', array('jquery'));
