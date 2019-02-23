@@ -1,5 +1,13 @@
 {
     "name": "ozone/theme-options",
     "type": "library",
-    "require": {}
+    "require": {},
+  "autoload": {
+    "psr-4": {
+      "Ozone\\": "src/"
+    }
+  },
+    "require-dev": {
+        "johnpbloch/wordpress-core": "^5.1"
+    }
 }

@@ -34,7 +34,6 @@
  function theme_option_page() {
      include(__DIR__ . '/page.php');
  }
- 
 
  
  
