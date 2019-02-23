@@ -22,6 +22,7 @@
     'theme_option_page'
 );
 
+ exit;
  function ozone_init() {
      wp_enqueue_script('bootstrap-js', plugins_url('/assets/js/bootstrap.min.js', __FILE__), '4.0', array('jquery'));
      wp_enqueue_style('bootstrap-css', plugins_url('/assets/css/bootstrap.min.css', __FILE__));
