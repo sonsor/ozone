@@ -1,0 +1,23 @@
+So first options array provided to a class, that class will resposible
+initicate the main page and iterate each
+element and pass to builder class where the builder class make cases of
+eac element according to their type.
+here is some layout elements
+
+1) Header
+2) Footer
+3) Nav
+4) link
+
+Then there will be a class name Page that have following structure
+
+Page {
+    title String
+    header <Object> iElement
+    footer <Object> iElement
+    nav <object> iteratable
+    elements <Array>iElement
+
+    render(): String
+}
+
