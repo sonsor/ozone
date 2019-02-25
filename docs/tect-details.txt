@@ -16,8 +16,14 @@ Page {
     header <Object> iElement
     footer <Object> iElement
     nav <object> iteratable
-    elements <Array>iElement
+    elements <Array> iElement
 
     render(): String
+    close(): string
 }
+
+so render function iterate each element and push main and sub sections in stack and
+everty time get new section pop all stack and close them. at the end check if not
+empty then pop all
+
 
