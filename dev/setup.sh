@@ -10,3 +10,7 @@ fi
 if [ ! -f /bin/composer ]; then
     sudo ln -s $(pwd)/composer.sh /bin/composer
 fi
+
+if [ ! -f /bin/php ]; then
+    sudo ln -s $(pwd)/php.sh /bin/php
+fi
