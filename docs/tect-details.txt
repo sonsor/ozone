@@ -26,4 +26,35 @@ so render function iterate each element and push main and sub sections in stack 
 everty time get new section pop all stack and close them. at the end check if not
 empty then pop all
 
+iSection {
+    open(): string
+    close(): string
+}
 
+iSection will be implemented on element type page and element type section.
+
+iElement {
+    render(): string
+}
+
+this will implement on all the elements except page and section
+
+
+iField {
+    setValue(): void
+    getValue(): string|array
+}
+the iField interface will implement on form elements only
+
+abstract Element
+Text extends Element
+TextArea extends Element
+Select extends Element
+MultiSelect extends Element
+RadioBox extends Element
+CheckBox extends Element
+File extends Element
+Page extend Element
+Section extends Element
+
+Builder
