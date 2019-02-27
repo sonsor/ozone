@@ -19,7 +19,8 @@ RUN apk --no-cache add \
        php7-simplexml \
        php7-json \
        php7-phar \
-       php7-openssl
+       php7-openssl \
+       php7-xmlwriter
 
 #RUN apk --no-cache add \
 #        ca-certificates \
