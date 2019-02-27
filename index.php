@@ -5,6 +5,7 @@
  * Author: Wasif Farooq
  */
 
+require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . "vender/autoload.php");
 
 add_action('admin_init', 'ozone_init');
 

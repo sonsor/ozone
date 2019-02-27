@@ -5,7 +5,7 @@
  * Date: 2/26/19
  * Time: 8:45 PM
  */
-namespace Ozone\Plugin\Interface;
+namespace Ozone\ThemeOptions\Interface;
 
 /**
  * Interface iField
@@ -22,4 +22,14 @@ interface iField
      * @return string
      */
     public function getValue(): string;
+
+    /**
+     * @return string
+     */
+    public function getName(): string;
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void;
 }

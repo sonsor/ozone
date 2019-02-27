@@ -5,7 +5,7 @@
  * Date: 2/26/19
  * Time: 9:55 PM
  */
-namespace Ozone\Plugin\Interface;
+namespace Ozone\ThemeOptions\Interface;
 
 /**
  * Interface iMultiVale
