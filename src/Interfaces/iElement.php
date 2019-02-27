@@ -5,7 +5,7 @@
  * Date: 2/24/19
  * Time: 1:55 PM
  */
-namespace Ozone\ThemeOptions\Interface;
+namespace Ozone\ThemeOptions\Interfaces;
 
 /**
  * Interface iElement

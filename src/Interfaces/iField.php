@@ -5,7 +5,7 @@
  * Date: 2/26/19
  * Time: 8:45 PM
  */
-namespace Ozone\ThemeOptions\Interface;
+namespace Ozone\ThemeOptions\Interfaces;
 
 /**
  * Interface iField
