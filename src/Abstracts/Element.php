@@ -35,7 +35,24 @@ abstract class Element implements iElement
     /**
      * @var string
      */
+    protected $title;
+
+    /**
+     * @var string
+     */
     private $wrapperTag;
+
+    /**
+     * Element constructor.
+     */
+    public function __construct()
+    {
+        $this->wrapperTag = apply_filters(
+            Constants::FIELD_WRAPPER_TAG,
+            $this->wrapperTag,
+            (array) $this
+        );
+    }
 
     /**
      * @return array
@@ -59,6 +76,14 @@ abstract class Element implements iElement
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
     }
 
     /**
@@ -86,21 +111,36 @@ abstract class Element implements iElement
     }
 
     /**
-     * @param string $name
-     * @return string|null
+     * @param string $title
      */
-    protected function getAttribute(string $name): ?string
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getClasses(): array
+    {
+        return apply_filters(
+            Constants::FIELD_CLASSES,
+            $this->getAttribute('class'),
+            (array) $this
+        );
+    }
+
+    /**
+     * @param string $name
+     * @return null|string|array
+     */
+    protected function getAttribute(string $name)
     {
         if (!isset($this->attributes[$name])) {
             return '';
         }
 
-        $attribute = $this->attributes[$name];
-        if (is_array($attribute)) {
-            return implode('', $attribute);
-        }
-
-        return (string) $attribute;
+        return $this->attributes[$name];
     }
 
     /**
@@ -114,21 +154,14 @@ abstract class Element implements iElement
             (array) $this
         );
 
-        /** @var  string $wrapperTag */
-        $wrapperTag = apply_filters(
-            Constants::FIELD_WRAPPER_TAG,
-            $this->wrapperTag,
-            (array) $this
-        );
+        /** @var array $classes */
+        $classes = $this->getClasses();
 
-        /** @var string $classes */
-        $classes = apply_filters(
-            Constants::FIELD_CLASSES,
-            $this->getAttribute('class'),
-            (array) $this
-        );
+        $html .= '<' .
+            $this->wrapperTag .
+            ' class="' . implode(" ", $classes) .
+            '">';
 
-        $html .= '<'. $wrapperTag .' class="form-group ' . $classes. '">';
         return $html;
     }
 
@@ -137,15 +170,8 @@ abstract class Element implements iElement
      */
     protected function close(): string
     {
-        /** @var string $wrapperTag */
-        $wrapperTag = apply_filters(
-            Constants::FIELD_WRAPPER_TAG,
-            $this->wrapperTag,
-            (array) $this
-        );
-
         /** @var string $html */
-        $html = '</' . $wrapperTag . '>';
+        $html = '</' . $this->wrapperTag . '>';
 
         $html .= apply_filters(
             Constants::AFTER_FIELD_WRAPPER,

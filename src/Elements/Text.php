@@ -8,7 +8,7 @@
 
 namespace Ozone\ThemeOptions\Elements;
 
-use Ozone\ThemeOptions\Abstracts\Element;
+use Ozone\ThemeOptions\Abstracts\Field;
 use Ozone\ThemeOptions\Interfaces\iField;
 use Ozone\ThemeOptions\Interfaces\iElement;
 
@@ -16,7 +16,7 @@ use Ozone\ThemeOptions\Interfaces\iElement;
  * Class Text
  * @package Ozone\ThemeOptions\Elements
  */
-class Text extends Element implements iElement, iField
+class Text extends Field implements iElement, iField
 {
     /**
      * @return string
