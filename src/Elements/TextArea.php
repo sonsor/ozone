@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: wasif
- * Date: 3/2/19
- * Time: 11:30 AM
+ * Date: 3/3/19
+ * Time: 6:01 PM
  */
 
 namespace Ozone\ThemeOptions\Elements;
@@ -14,10 +14,10 @@ use Ozone\ThemeOptions\Interfaces\iElement;
 use Ozone\ThemeOptions\Constants;
 
 /**
- * Class Text
+ * Class TextArea
  * @package Ozone\ThemeOptions\Elements
  */
-class Text extends Field implements iElement, iField
+class TextArea extends Field implements iElement, iField
 {
     /**
      * @return string
@@ -45,12 +45,11 @@ class Text extends Field implements iElement, iField
 
         $html .= $this->apply(
             Constants::FIELD,
-            '<input 
+            '<textarea 
                     name="' . $this->getName() . '"
                     id="' . $this->getName() . '"
                     type="text"
-                    value="' . $this->getValue() . '"
-                  />'
+                  >' . $this->getValue() . '</textarea>'
         );
 
         $html .= $this->apply(Constants::AFTER_FIELD);
