@@ -119,14 +119,29 @@ abstract class Element implements iElement
     }
 
     /**
+     * @param string $tag
+     * @param string|array $data
+     * @return string|array
+     */
+    protected function apply(string $tag, $data = '')
+    {
+        return call_user_func(
+            'apply_filters',
+            array_merge(
+                array($tag, $data),
+                $this->toArray()
+            )
+        );
+    }
+
+    /**
      * @return array
      */
     protected function getClasses(): array
     {
-        return apply_filters(
+        return $this->apply(
             Constants::FIELD_CLASSES,
-            $this->getAttribute('class'),
-            (array) $this
+            $this->getAttribute('class')
         );
     }
 
@@ -148,11 +163,7 @@ abstract class Element implements iElement
      */
     protected function open(): string
     {
-        $html = apply_filters(
-            Constants::BEFORE_FIELD_WRAPPER,
-            '',
-            (array) $this
-        );
+        $html = $this->apply(Constants::BEFORE_FIELD_WRAPPER);
 
         /** @var array $classes */
         $classes = $this->getClasses();
@@ -172,20 +183,14 @@ abstract class Element implements iElement
     {
         /** @var string $html */
         $html = '</' . $this->wrapperTag . '>';
-
-        $html .= apply_filters(
-            Constants::AFTER_FIELD_WRAPPER,
-            '',
-            (array) $this
-        );
-
+        $html .= $this->apply(Constants::AFTER_FIELD_WRAPPER);
         return $html;
     }
 
     /**
      * @return array
      */
-    public function __toArray(): array
+    public function toArray(): array
     {
         return array(
           'name' => $this->name,
