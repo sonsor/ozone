@@ -27,4 +27,3 @@ interface ISection
      */
     public function close(): string;
 }
-
