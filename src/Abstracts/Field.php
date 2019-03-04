@@ -22,6 +22,11 @@ abstract class Field extends Element implements iField
     protected $options;
 
     /**
+     * @var string
+     */
+    protected $value;
+
+    /**
      * @return array
      */
     public function getOptions(): array
@@ -30,11 +35,27 @@ abstract class Field extends Element implements iField
     }
 
     /**
+     * @return string
+     */
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    /**
      * @param array $options
      */
     public function setOptions(array $options): void
     {
         $this->options = $options;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setValue(string $value): void
+    {
+        $this->value = $value;
     }
 
     /**
@@ -48,5 +69,17 @@ abstract class Field extends Element implements iField
             array_unshift($classes, 'form-group');
         }
         return $classes;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return array(
+            'name' => $this->getName(),
+            'value' => $this->getValue(),
+            'attributes' => $this->getAttributes()
+        );
     }
 }

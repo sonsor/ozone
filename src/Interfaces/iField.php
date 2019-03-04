@@ -29,7 +29,30 @@ interface iField
     public function getName(): string;
 
     /**
+     * @return string
+     */
+    public function getTitle(): string;
+
+    /**
+     * @return array
+     */
+    public function getAttributes(): array;
+
+    /**
      * @param string $name
+     * @return void
      */
     public function setName(string $name): void;
+
+    /**
+     * @param string $title
+     * @return void
+     */
+    public function setTitle(string $title): void;
+
+    /**
+     * @param array $attributes
+     * @return void
+     */
+    public function setAttributes(array $attributes): void;
 }

@@ -25,17 +25,12 @@ abstract class Element implements iElement
     /**
      * @var string
      */
-    protected $value;
+    protected $title;
 
     /**
      * @var string
      */
     protected $name;
-
-    /**
-     * @var string
-     */
-    protected $title;
 
     /**
      * @var string
@@ -65,14 +60,6 @@ abstract class Element implements iElement
     /**
      * @return string
      */
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
@@ -92,14 +79,6 @@ abstract class Element implements iElement
     public function setAttributes(array $attributes): void
     {
         $this->attributes = $attributes;
-    }
-
-    /**
-     * @param string $value
-     */
-    public function setValue(string $value): void
-    {
-        $this->value = $value;
     }
 
     /**
@@ -193,9 +172,8 @@ abstract class Element implements iElement
     public function toArray(): array
     {
         return array(
-          'name' => $this->name,
-          'value' => $this->value,
-          'attributes' => $this->attributes
+          'name' => $this->getName(),
+          'attributes' => $this->getAttributes()
         );
     }
 }
