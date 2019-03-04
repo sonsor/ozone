@@ -17,6 +17,27 @@ use Ozone\ThemeOptions\Interfaces\iField;
 abstract class Field extends Element implements iField
 {
     /**
+     * @var array
+     */
+    protected $options;
+
+    /**
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+    /**
+     * @param array $options
+     */
+    public function setOptions(array $options): void
+    {
+        $this->options = $options;
+    }
+
+    /**
      * @return array
      */
     protected function getClasses(): array
