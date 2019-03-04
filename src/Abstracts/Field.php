@@ -8,13 +8,13 @@
 
 namespace Ozone\ThemeOptions\Abstracts;
 
-use Ozone\ThemeOptions\Interfaces\iField;
+use Ozone\ThemeOptions\Interfaces\IField;
 
 /**
  * Class Field
  * @package Ozone\ThemeOptions\Abstracts
  */
-abstract class Field extends Element implements iField
+abstract class Field extends Element implements IField
 {
     /**
      * @var array

@@ -2,23 +2,26 @@
 /**
  * Created by PhpStorm.
  * User: wasif
- * Date: 2/24/19
- * Time: 1:55 PM
+ * Date: 2/26/19
+ * Time: 8:45 PM
  */
 namespace Ozone\ThemeOptions\Interfaces;
 
 /**
- * Interface iElement
+ * Interface iField
  * @package Ozone\Plugin\Interface
  */
-interface iElement
+interface IField
 {
     /**
-     * This function is used to render element html that
-     * will implement all the elements
+     * @param string $value
+     */
+    public function setValue(string $value): void;
+
+    /**
      * @return string
      */
-    public function render(): string;
+    public function getValue(): string;
 
     /**
      * @return string

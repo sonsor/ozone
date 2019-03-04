@@ -8,14 +8,14 @@
 
 namespace Ozone\ThemeOptions\Abstracts;
 
-use Ozone\ThemeOptions\interfaces\iElement;
+use Ozone\ThemeOptions\interfaces\IElement;
 use Ozone\ThemeOptions\Constants;
 
 /**
  * Class Element
  * @package Ozone\ThemeOptions\Abstracts
  */
-abstract class Element implements iElement
+abstract class Element implements IElement
 {
     /**
      * @var array

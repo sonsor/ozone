@@ -9,15 +9,14 @@
 namespace Ozone\ThemeOptions\Elements;
 
 use Ozone\ThemeOptions\Abstracts\Field;
-use Ozone\ThemeOptions\Interfaces\iField;
-use Ozone\ThemeOptions\Interfaces\iElement;
+use Ozone\ThemeOptions\Interfaces\IField;
 use Ozone\ThemeOptions\Constants;
 
 /**
  * Class Select
  * @package Ozone\ThemeOptions\Elements
  */
-class Select extends Field implements iElement, iField
+class Select extends Field implements IField
 {
     /**
      * @return string

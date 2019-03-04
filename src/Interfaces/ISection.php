@@ -11,19 +11,20 @@ namespace Ozone\ThemeOptions\Interfaces;
  * Interface iSection
  * @package Ozone\Plugin\Interface
  */
-interface iSection
+interface ISection
 {
     /**
      * This function is used to render element html that
      * will implement all the elements
      * @return string
      */
-    public function open(): string
+    public function open(): string;
 
     /**
      * This function is used to render element html that
      * will implement all the elements
      * @return string
      */
-    public function open(): string
+    public function close(): string;
 }
+
