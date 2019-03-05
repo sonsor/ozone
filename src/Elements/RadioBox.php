@@ -87,6 +87,5 @@ class RadioBox extends Field implements IField
             $html .= '</label>';
         }
         return $html;
-
     }
 }

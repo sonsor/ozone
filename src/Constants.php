@@ -30,5 +30,6 @@ class Constants
     // FIELD FILTERS
     public static const BEFORE_FIELD = self::OZONE_THEME_OPTION . 'before_field';
     public static const FIELD = self::OZONE_THEME_OPTION . 'field';
-    public static const AFTER_FIELD = self::OZONE_THEME_OPTION . 'after_field';
+    public static const AFTER_FIELD
+        = self::OZONE_THEME_OPTION . 'after_field';
 }
