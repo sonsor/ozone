@@ -8,15 +8,38 @@
 
 namespace Ozone\ThemeOptions;
 
-use function Composer\Autoload\includeFile;
-use \Exception;
 use Ozone\ThemeOptions\Exceptions\FileNotExistsException;
 use Ozone\ThemeOptions\Exceptions\InvalidFileTypeException;
-use Ozone\ThemeOptions\Interfaces\ILoader
+use Ozone\ThemeOptions\Exceptions\InvalidTypeExcaption;
+use Ozone\ThemeOptions\Interfaces\ILoader;
 
-
+/**
+ * Class Loader
+ * @package Ozone\ThemeOptions
+ */
 class Loader implements ILoader
 {
+    /**
+     * @var string
+     */
+    protected $viewPath;
+
+    /**
+     * @return string
+     */
+    public function getViewPath(): string
+    {
+        return $this->viewPath;
+    }
+
+    /**
+     * @param string $viewPath
+     */
+    public function setViewPath(string $viewPath): void
+    {
+        $this->viewPath = $viewPath;
+    }
+
     /**
      * @param string $path
      * @param array $vars
@@ -26,7 +49,7 @@ class Loader implements ILoader
     {
         extract($vars);
         ob_start();
-        include($path);
+        include $path;
         return ob_get_clean();
     }
 
@@ -36,15 +59,16 @@ class Loader implements ILoader
      * @return string
      * @throws FileNotExistsException
      * @throws InvalidFileTypeException
+     * @throws InvalidTypeExcaption
      */
     public function view(string $view, array $vars): string
     {
         if (empty($view)) {
-            throw new FileNotExistsException(('The provided view path is empty');
+            throw new FileNotExistsException('The provided view path is empty');
         }
 
         /** @var string $path */
-        $path = VIEW_DIR . DIRECTORY_SEPARATOR . $view;
+        $path = $this->getViewPath() . DIRECTORY_SEPARATOR . $view . '.php';
 
         if (!file_exists($path)) {
             throw new FileNotExistsException('The provided file path does not exists');
@@ -57,7 +81,7 @@ class Loader implements ILoader
         }
 
         if (!is_array($vars)) {
-            throw new Exception('the vars should be array ' . gettype($vars). ' given');
+            throw new InvalidTypeExcaption('the vars should be array ' . gettype($vars) . ' given');
         }
 
         return $this->load($path, $vars);
