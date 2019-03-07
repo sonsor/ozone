@@ -1,6 +1,7 @@
 {
   "name": "ozone/theme-options",
   "type": "library",
+  "description": "This package is wordpress plugin that will enalbe you to easly setup the theme option panel for your custom themes",
   "require": {},
   "autoload": {
     "psr-4": {
@@ -10,5 +11,8 @@
   "require-dev": {
     "johnpbloch/wordpress-core": "^5.1",
     "php": "^7.2"
+  },
+  "scripts": {
+    "phpcs": "phpcs ./src"
   }
 }
