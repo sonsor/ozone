@@ -9,6 +9,7 @@
 namespace Ozone\ThemeOptions\Abstracts;
 
 use Ozone\ThemeOptions\Interfaces\IField;
+use Ozone\ThemeOptions\Constants;
 
 /**
  * Class Field
@@ -71,9 +72,6 @@ abstract class Field extends Element implements IField
         return $classes;
     }
 
-    /**
-     * @return array
-     */
     public function toArray(): array
     {
         return array(
@@ -81,5 +79,28 @@ abstract class Field extends Element implements IField
             'value' => $this->getValue(),
             'attributes' => $this->getAttributes()
         );
+    }
+
+    /**
+     * @return array
+     */
+    protected function extract(): array
+    {
+        /** @var array $vars */
+        $vars = parent::extract();
+
+        // applyin filters on before field
+        $vars['before_field'] = $this->apply(Constants::BEFORE_FIELD);
+
+        // applying filters on after field
+        $vars['after_field'] = $this->apply(Constants::AFTER_FIELD);
+
+        // applyin filters on field value
+        $vars['value'] = $this->apply(
+            Constants::FIELD_VALUE,
+            $this->getValue()
+        );
+
+        return $vars;
     }
 }

@@ -19,6 +19,11 @@ use Ozone\ThemeOptions\Interfaces\ILoader;
 abstract class Element implements IElement
 {
     /**
+     * @var string
+     */
+    protected $id;
+
+    /**
      * @var array
      */
     protected $attributes;
@@ -51,7 +56,7 @@ abstract class Element implements IElement
         $this->wrapperTag = apply_filters(
             Constants::FIELD_WRAPPER_TAG,
             $this->wrapperTag,
-            (array) $this
+            (array)$this
         );
     }
 
@@ -61,6 +66,14 @@ abstract class Element implements IElement
     public function getAttributes(): array
     {
         return $this->attributes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
     }
 
     /**
@@ -93,6 +106,14 @@ abstract class Element implements IElement
     public function setAttributes(array $attributes): void
     {
         $this->attributes = $attributes;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId(string $id): void
+    {
+        $this->id = $id;
     }
 
     /**
@@ -194,8 +215,58 @@ abstract class Element implements IElement
     public function toArray(): array
     {
         return array(
-          'name' => $this->getName(),
-          'attributes' => $this->getAttributes()
+            'name' => $this->getName(),
+            'attributes' => $this->getAttributes()
         );
+    }
+
+    /**
+     * @return array
+     */
+    protected function extract(): array
+    {
+        /** @var array $vars */
+        $vars = array(
+            'id' => $this->getId(),
+            'name' => $this->getName()
+        );
+
+        // applying filters on before wrapper
+        $vars['before'] = $this->apply(Constants::BEFORE_FIELD_WRAPPER);
+
+        // applying filters on after field wrapper
+        $vars['before'] = $this->apply(Constants::AFTER_FIELD_WRAPPER);
+
+        // applying filters on before field title element
+        $vars['before_title_tag'] = $this->apply(Constants::BEFORE_TITLE_TAG);
+
+        // applying filters on after field title element
+        $vars['after_title_tag'] = $this->apply(Constants::AFTER_TITLE_TAG);
+
+        // applying filters on before field title
+        $vars['before_title'] = $this->apply(Constants::BEFORE_TITLE);
+
+        // applying filters on after field title
+        $vars['after_title_tag'] = $this->apply(Constants::AFTER_TITLE);
+
+        // applying filters on field title
+        $vars['title'] = $this->apply(
+            Constants::TITLE,
+            $this->getTitle()
+        );
+
+        // applying filters on field classes
+        $vars['classes'] = $this->apply(
+            Constants::FIELD_CLASSES,
+            $this->getClasses()
+        );
+
+        // applying filters on element attributes
+        $vars['attributes'] = $this->apply(
+            Constants::FIELD_ATTRIBUTES,
+            $this->getAttributes()
+        );
+
+        return $vars;
     }
 }
