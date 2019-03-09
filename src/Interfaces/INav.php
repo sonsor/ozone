@@ -8,8 +8,11 @@
 
 namespace Ozone\ThemeOptions\Interfaces;
 
-
-interface iNav
+/**
+ * Interface iNav
+ * @package Ozone\ThemeOptions\Interfaces
+ */
+interface INav
 {
 
 }

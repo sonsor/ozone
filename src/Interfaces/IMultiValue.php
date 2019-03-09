@@ -11,7 +11,7 @@ namespace Ozone\ThemeOptions\Interfaces;
  * Interface iMultiVale
  * @package Ozone\Plugin\Interface
  */
-interface iMultiVale
+interface IMultiVale
 {
     /**
      * @param array $value

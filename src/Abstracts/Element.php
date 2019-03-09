@@ -10,6 +10,7 @@ namespace Ozone\ThemeOptions\Abstracts;
 
 use Ozone\ThemeOptions\interfaces\IElement;
 use Ozone\ThemeOptions\Constants;
+use Ozone\ThemeOptions\Interfaces\ILoader;
 
 /**
  * Class Element
@@ -21,6 +22,11 @@ abstract class Element implements IElement
      * @var array
      */
     protected $attributes;
+
+    /**
+     * @var ILoader
+     */
+    protected $loader;
 
     /**
      * @var string
@@ -58,6 +64,14 @@ abstract class Element implements IElement
     }
 
     /**
+     * @return ILoader
+     */
+    public function getLoader(): ILoader
+    {
+        return $this->loader;
+    }
+
+    /**
      * @return string
      */
     public function getName(): string
@@ -87,6 +101,14 @@ abstract class Element implements IElement
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ILoader $loader
+     */
+    public function setLoader(ILoader $loader): void
+    {
+        $this->loader = $loader;
     }
 
     /**

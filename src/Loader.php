@@ -4,6 +4,8 @@
  * User: wasif
  * Date: 3/6/19
  * Time: 10:00 PM
+ * @author Wasif Farooq
+ *
  */
 
 namespace Ozone\ThemeOptions;
