@@ -36,5 +36,6 @@ class Constants
     public static const AFTER_FIELD = self::OZONE_THEME_OPTION . 'after_field';
 
     public static const FIELD_VALUE = self::OZONE_THEME_OPTION . 'field_value';
+    public static const FIELD_OPTIONS = self::OZONE_THEME_OPTION . 'field_options';
 
 }

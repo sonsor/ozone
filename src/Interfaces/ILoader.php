@@ -19,5 +19,5 @@ interface ILoader
      * @param array $vars
      * @return string
      */
-    public function view(string $path, array $vars): string;
+    public function getView(string $path, array $vars): string;
 }

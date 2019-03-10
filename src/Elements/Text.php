@@ -22,6 +22,6 @@ class Text extends Field implements IField
      */
     public function render(): string
     {
-        return $this->getLoader()->view('text', $this->extract());
+        return $this->getLoader()->getView('text', $this->extract());
     }
 }

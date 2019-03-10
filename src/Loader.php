@@ -63,7 +63,7 @@ class Loader implements ILoader
      * @throws InvalidFileTypeException
      * @throws InvalidTypeExcaption
      */
-    public function view(string $view, array $vars): string
+    public function getView(string $view, array $vars): string
     {
         if (empty($view)) {
             throw new FileNotExistsException('The provided view path is empty');
