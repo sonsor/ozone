@@ -8,15 +8,16 @@
 
 namespace Ozone\ThemeOptions\Elements;
 
-use Ozone\ThemeOptions\Abstracts\Field;
+use Ozone\ThemeOptions\Abstracts\SingleValueField;
 use Ozone\ThemeOptions\Interfaces\IField;
 use Ozone\ThemeOptions\Constants;
+use Ozone\ThemeOptions\Interfaces\IValue;
 
 /**
  * Class Select
  * @package Ozone\ThemeOptions\Elements
  */
-class Select extends Field implements IField
+class Select extends SingleValueField implements IField, IValue
 {
     /**
      * @return array

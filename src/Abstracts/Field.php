@@ -23,11 +23,6 @@ abstract class Field extends Element implements IField
     protected $options;
 
     /**
-     * @var string
-     */
-    protected $value;
-
-    /**
      * @return array
      */
     public function getOptions(): array
@@ -36,27 +31,11 @@ abstract class Field extends Element implements IField
     }
 
     /**
-     * @return string
-     */
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-
-    /**
      * @param array $options
      */
     public function setOptions(array $options): void
     {
         $this->options = $options;
-    }
-
-    /**
-     * @param string $value
-     */
-    public function setValue(string $value): void
-    {
-        $this->value = $value;
     }
 
     /**
@@ -72,15 +51,6 @@ abstract class Field extends Element implements IField
         return $classes;
     }
 
-    public function toArray(): array
-    {
-        return array(
-            'name' => $this->getName(),
-            'value' => $this->getValue(),
-            'attributes' => $this->getAttributes()
-        );
-    }
-
     /**
      * @return array
      */
@@ -94,12 +64,6 @@ abstract class Field extends Element implements IField
 
         // applying filters on after field
         $vars['after_field'] = $this->apply(Constants::AFTER_FIELD);
-
-        // applyin filters on field value
-        $vars['value'] = $this->apply(
-            Constants::FIELD_VALUE,
-            $this->getValue()
-        );
 
         return $vars;
     }

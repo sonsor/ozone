@@ -14,16 +14,6 @@ namespace Ozone\ThemeOptions\Interfaces;
 interface IField
 {
     /**
-     * @param string $value
-     */
-    public function setValue(string $value): void;
-
-    /**
-     * @return string
-     */
-    public function getValue(): string;
-
-    /**
      * @return string
      */
     public function getName(): string;

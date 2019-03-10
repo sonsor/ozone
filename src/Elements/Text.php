@@ -8,14 +8,15 @@
 
 namespace Ozone\ThemeOptions\Elements;
 
-use Ozone\ThemeOptions\Abstracts\Field;
+use Ozone\ThemeOptions\Abstracts\SingleValueField;
 use Ozone\ThemeOptions\Interfaces\IField;
+use Ozone\ThemeOptions\Interfaces\IValue;
 
 /**
  * Class Text
  * @package Ozone\ThemeOptions\Elements
  */
-class Text extends Field implements IField
+class Text extends SingleValueField implements IField, IValue
 {
     /**
      * @return string

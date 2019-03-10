@@ -8,10 +8,10 @@
 namespace Ozone\ThemeOptions\Interfaces;
 
 /**
- * Interface iMultiVale
+ * Interface iMultiValue
  * @package Ozone\Plugin\Interface
  */
-interface IMultiVale
+interface IMultiValue
 {
     /**
      * @param array $value

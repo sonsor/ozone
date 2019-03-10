@@ -8,15 +8,16 @@
 
 namespace Ozone\ThemeOptions\Elements;
 
-use Ozone\ThemeOptions\Abstracts\Field;
+use Ozone\ThemeOptions\Abstracts\SingleValueField;
 use Ozone\ThemeOptions\Interfaces\IField;
 use Ozone\ThemeOptions\Constants;
+use Ozone\ThemeOptions\Interfaces\IValue;
 
 /**
- * Class RadioBox
+ * Class Radio
  * @package Ozone\ThemeOptions\Elements
  */
-class RadioBox extends Field implements IField
+class Radio extends SingleValueField implements IField, IValue
 {
     /**
      * @return array
