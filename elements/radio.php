@@ -54,10 +54,9 @@ echo $before;
                 <input
                     name="<?php echo $name; ?>"
                     id="<?php echo $id . $key; ?>"
+                    type="radio"
                     value="<?php echo $key; ?>"
                     <?php echo ($key === $value) ? 'checked': ''; ?>
-                >
-                <?php echo $label; ?>
                 />
                 <i></i>
                 <span><?php echo $label; ?></span>
