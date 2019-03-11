@@ -1,36 +1,29 @@
 FROM alpine:3.9
 
-RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
+RUN apk --no-cache add ca-certificates
+RUN apk --no-cache add wget
+RUN apk --no-cache add git
+RUN apk --no-cache add curl
+RUN apk --no-cache add php7
+RUN apk --no-cache add php7-cli
+RUN apk --no-cache add php7-dom
+RUN apk --no-cache add php7-iconv
+RUN apk --no-cache add php7-phar
+RUN apk --no-cache add php7-xdebug
+RUN apk --no-cache add php7-zlib
+RUN apk --no-cache add php7-tokenizer
+RUN apk --no-cache add php7-xml
+RUN apk --no-cache add php7-simplexml
+RUN apk --no-cache add php7-json
+RUN apk --no-cache add php7-phar
+RUN apk --no-cache add php7-openssl
+RUN apk --no-cache add php7-xmlwriter
+RUN apk --no-cache add php7-xmlwriter
+RUN apk --no-cache add php7-mbstring
+RUN apk --no-cache add php7-xdebug
 
-RUN apk --no-cache add \
-       ca-certificates \
-       wget \
-       git \
-       curl \
-       php7 \
-       php7-cli \
-       php7-dom \
-       php7-iconv \
-       php7-phar \
-       php7-xdebug \
-       php7-zlib \
-       php7-tokenizer \
-       php7-xml \
-       php7-simplexml \
-       php7-json \
-       php7-phar \
-       php7-openssl \
-       php7-xmlwriter
-
-#RUN apk --no-cache add \
-#        ca-certificates \
-#        curl \
-#        php5-cli \
-#        php5-dom \
-#        php5-iconv \
-#        php5-phar \
-#        php5-xdebug \
-#        php5-zlib
+RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing
+#RUN apk add --no-cache gnu-libiconv
 
 WORKDIR /tmp
 
