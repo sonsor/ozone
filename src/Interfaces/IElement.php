@@ -14,13 +14,6 @@ namespace Ozone\ThemeOptions\Interfaces;
 interface IElement
 {
     /**
-     * This function is used to render element html that
-     * will implement all the elements
-     * @return string
-     */
-    public function render(): string;
-
-    /**
      * @return string
      */
     public function getName(): string;

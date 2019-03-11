@@ -7,9 +7,11 @@
  *
  * @var string $before
  * @var string $title
+ * @var string $id
+ * @var string $classes
  */
 echo $before; ?>
-<article>
+<article id="<?php echo $id; ?>" class="<?php echo $classes; ?>">
     <header>
         <h3><?php echo $title; ?></h3>
     </header>

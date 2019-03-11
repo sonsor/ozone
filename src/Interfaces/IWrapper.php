@@ -11,7 +11,7 @@ namespace Ozone\ThemeOptions\Interfaces;
  * Interface iSection
  * @package Ozone\Plugin\Interface
  */
-interface ISection
+interface IWrapper
 {
     /**
      * This function is used to render element html that

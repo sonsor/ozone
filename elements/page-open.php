@@ -8,7 +8,8 @@
  * @var string $title
  * @var string $id
  * @var string $before;
+ * @var string $classes
  */
 echo $before; ?>
-<sction id="<?php echo $id; ?>">
+<sction id="<?php echo $id; ?>" class="<?php echo $classes; ?>">
     <h1><?php echo $title; ?></h1>

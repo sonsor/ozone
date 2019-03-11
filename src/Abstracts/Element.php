@@ -181,35 +181,6 @@ abstract class Element implements IElement
     }
 
     /**
-     * @return string
-     */
-    protected function open(): string
-    {
-        $html = $this->apply(Constants::BEFORE_FIELD_WRAPPER);
-
-        /** @var array $classes */
-        $classes = $this->getClasses();
-
-        $html .= '<' .
-            $this->wrapperTag .
-            ' class="' . implode(" ", $classes) .
-            '">';
-
-        return $html;
-    }
-
-    /**
-     * @return string
-     */
-    protected function close(): string
-    {
-        /** @var string $html */
-        $html = '</' . $this->wrapperTag . '>';
-        $html .= $this->apply(Constants::AFTER_FIELD_WRAPPER);
-        return $html;
-    }
-
-    /**
      * @return array
      */
     public function toArray(): array
