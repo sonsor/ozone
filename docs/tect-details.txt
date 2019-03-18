@@ -60,3 +60,23 @@ Page extend Field
 Section extends Field
 
 Builder
+Director
+
+Layout
+    header
+    nav
+    footer
+
+
+
+Layout will be maintined using header nav content and footer content contains elements and header
+contains logo
+nav contains all main and sub section links
+asds
+
+
+Nav
+Link
+
+nav has array of links
+the link contains name uri label and paren active icon

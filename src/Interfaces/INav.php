@@ -14,5 +14,9 @@ namespace Ozone\ThemeOptions\Interfaces;
  */
 interface INav
 {
-
+    /**
+     * @param string $name
+     * @param string $label
+     */
+    public function add(string $name, string $label): void;
 }
