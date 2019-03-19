@@ -16,7 +16,16 @@ interface INav
 {
     /**
      * @param string $name
-     * @param string $label
+     * @param string $title
+     * @param ILink|null $parent
+     * @return ILink
      */
-    public function add(string $name, string $label): void;
+    public function add(string $name, string $title, ILink $parent = null): ILink;
+
+    /**
+     * @param ILink $menu
+     * @param int $depth
+     * @return array
+     */
+    public function childrens(ILink $menu, int $depth): array;
 }

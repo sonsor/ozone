@@ -15,6 +15,16 @@ namespace Ozone\ThemeOptions\Interfaces;
 interface ILink
 {
     /**
+     * @return int
+     */
+    public function getId(): int;
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void;
+
+    /**
      * @return ILink|null
      */
     public function getParent(): ?ILink;
@@ -58,4 +68,9 @@ interface ILink
      * @return array
      */
     public function toArray(): array;
+
+    /**
+     * @return string
+     */
+    public function uri(): string;
 }
