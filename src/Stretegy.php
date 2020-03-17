@@ -9,7 +9,7 @@
 
 namespace Ozone\ThemeOptions;
 
-
+use Ozone\ThemeOptions\Exceptions\InvalidTypeExcaption;
 use Ozone\ThemeOptions\Factory\CheckboxesFactory;
 use Ozone\ThemeOptions\Factory\CheckboxFactory;
 use Ozone\ThemeOptions\Factory\RadioFactory;
@@ -17,8 +17,13 @@ use Ozone\ThemeOptions\Factory\SelectFactory;
 use Ozone\ThemeOptions\Factory\TextAreaFactory;
 use Ozone\ThemeOptions\Factory\TextFactory;
 use Ozone\ThemeOptions\Interfaces\IElement;
+use Ozone\ThemeOptions\Interfaces\IStretegy;
 
-class Stretegy
+/**
+ * Class Stretegy
+ * @package Ozone\ThemeOptions
+ */
+class Stretegy implements IStretegy
 {
     /**
      * @var IFactory
@@ -45,29 +50,38 @@ class Stretegy
     /**
      * Stretegy constructor.
      * @param string $type
+     * @throws InvalidTypeExcaption
+     * @return void
      */
-    public function __construct(string $type): IElement
+    public function __construct(string $type)
     {
+        $factory = '';
         switch ($type) {
             case 'text':
-                $this->setFactory(TextFactory);
+                $factory = TextFactory;
                 break;
             case 'checkbox':
-                $this->setFactory(CheckboxFactory);
+                $factory = CheckboxFactory;
                 break;
             case 'checkbxes':
-                $this->setFactory(CheckboxesFactory);
+                $factory = CheckboxesFactory;
                 break;
             case 'radio':
-                $this->setFactory(RadioFactory);
+                $factory = RadioFactory;
                 break;
             case 'textarea':
-                $this->setFactory(TextAreaFactory);
+                $factory = TextAreaFactory;
                 break;
             case 'selet':
-                $this->setFactory(SelectFactory);
+                $factory = SelectFactory;
                 break;
         }
+
+        if (!$factory) {
+            throw new InvalidTypeExcaption('factory of type ' . $type . ' not exists');
+        }
+
+        $this->setFactory($factory);
     }
 
     /**
