@@ -23,6 +23,11 @@ class Checkboxes extends MultiValueField implements IField, IMultiValue
      */
     public function render(): string
     {
-        return $this->getLoader()->getView('checkboxes', $this->extract());
+        return $this
+            ->getLoader()
+            ->getView(
+                'checkboxes',
+                $this->extract()
+            );
     }
 }

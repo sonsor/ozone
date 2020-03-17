@@ -203,22 +203,40 @@ abstract class Element implements IElement
         );
 
         // applying filters on before wrapper
-        $vars['before'] = $this->apply(Constants::BEFORE_FIELD_WRAPPER);
+        $vars['before'] = $this->apply(
+            Constants::BEFORE_FIELD_WRAPPER,
+            ''
+        );
 
         // applying filters on after field wrapper
-        $vars['before'] = $this->apply(Constants::AFTER_FIELD_WRAPPER);
+        $vars['before'] = $this->apply(
+            Constants::AFTER_FIELD_WRAPPER,
+            ''
+        );
 
         // applying filters on before field title element
-        $vars['before_title_tag'] = $this->apply(Constants::BEFORE_TITLE_TAG);
+        $vars['before_title_tag'] = $this->apply(
+            Constants::BEFORE_TITLE_TAG,
+            ''
+        );
 
         // applying filters on after field title element
-        $vars['after_title_tag'] = $this->apply(Constants::AFTER_TITLE_TAG);
+        $vars['after_title_tag'] = $this->apply(
+            Constants::AFTER_TITLE_TAG,
+            ''
+        );
 
         // applying filters on before field title
-        $vars['before_title'] = $this->apply(Constants::BEFORE_TITLE);
+        $vars['before_title'] = $this->apply(
+            Constants::BEFORE_TITLE,
+            ''
+        );
 
         // applying filters on after field title
-        $vars['after_title_tag'] = $this->apply(Constants::AFTER_TITLE);
+        $vars['after_title_tag'] = $this->apply(
+            Constants::AFTER_TITLE,
+            ''
+        );
 
         // applying filters on field title
         $vars['title'] = $this->apply(

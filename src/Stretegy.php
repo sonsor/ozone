@@ -13,6 +13,7 @@ namespace Ozone\ThemeOptions;
 use Ozone\ThemeOptions\Factory\CheckboxesFactory;
 use Ozone\ThemeOptions\Factory\CheckboxFactory;
 use Ozone\ThemeOptions\Factory\RadioFactory;
+use Ozone\ThemeOptions\Factory\SelectFactory;
 use Ozone\ThemeOptions\Factory\TextAreaFactory;
 use Ozone\ThemeOptions\Factory\TextFactory;
 use Ozone\ThemeOptions\Interfaces\IElement;
@@ -63,6 +64,9 @@ class Stretegy
             case 'textarea':
                 $this->setFactory(TextAreaFactory);
                 break;
+            case 'selet':
+                $this->setFactory(SelectFactory);
+                break;
         }
     }
 
@@ -72,6 +76,6 @@ class Stretegy
      */
     public function create(array $data): IElement
     {
-        return $this->getFactory()->create($data);
+        return $this->getFactory()::create($data);
     }
 }

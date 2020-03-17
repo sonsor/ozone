@@ -1,23 +1,23 @@
 <?php
 /**
+ *
  * Created by PhpStorm.
- * User: wasif
- * Date: 3/4/19
- * Time: 8:50 PM
+ * User: imac
+ * Date: 2020-03-17
+ * Time: 14:18
  */
 
 namespace Ozone\ThemeOptions\Elements;
 
-use Ozone\ThemeOptions\Abstracts\SingleValueField;
+use Ozone\ThemeOptions\Abstracts\MultiValueField;
 use Ozone\ThemeOptions\Interfaces\IField;
-use Ozone\ThemeOptions\Constants;
-use Ozone\ThemeOptions\Interfaces\IValue;
+use Ozone\ThemeOptions\Interfaces\IMultiValue;
 
 /**
- * Class Select
+ * Class MultiSelect
  * @package Ozone\ThemeOptions\Elements
  */
-class Select extends SingleValueField implements IField, IValue
+class MultiSelect extends MultiValueField implements IField, IMultiValue
 {
     /**
      * @return array
@@ -44,8 +44,8 @@ class Select extends SingleValueField implements IField, IValue
         return $this
             ->getLoader()
             ->getView(
-                'select',
+                'multi-select',
                 $this->extract()
-            );
+            )
     }
 }

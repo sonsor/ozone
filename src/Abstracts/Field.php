@@ -60,10 +60,16 @@ abstract class Field extends Element implements IField
         $vars = parent::extract();
 
         // applyin filters on before field
-        $vars['before_field'] = $this->apply(Constants::BEFORE_FIELD);
+        $vars['before_field'] = $this->apply(
+            Constants::BEFORE_FIELD,
+            ''
+            );
 
         // applying filters on after field
-        $vars['after_field'] = $this->apply(Constants::AFTER_FIELD);
+        $vars['after_field'] = $this->apply(
+            Constants::AFTER_FIELD,
+            ''
+        );
 
         return $vars;
     }
