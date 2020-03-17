@@ -58,27 +58,13 @@ class Stretegy implements IStretegy
     {
         $factory = '';
         switch ($type) {
-            case 'text':
-                $factory = TextFactory;
-                break;
-            case 'checkbox':
-                $factory = CheckboxFactory;
-                break;
-            case 'checkbxes':
-                $factory = CheckboxesFactory;
-                break;
-            case 'radio':
-                $factory = RadioFactory;
-                break;
-            case 'textarea':
-                $factory = TextAreaFactory;
-                break;
-            case 'select':
-                $factory = SelectFactory;
-                break;
-            case 'hidden':
-                $factory = HiddenFactory;
-                break;
+            case 'text':        $factory = TextFactory;         break;
+            case 'checkbox':    $factory = CheckboxFactory;     break;
+            case 'checkbxes':   $factory = CheckboxesFactory;   break;
+            case 'radio':       $factory = RadioFactory;        break;
+            case 'textarea':    $factory = TextAreaFactory;     break;
+            case 'select':      $factory = SelectFactory;       break;
+            case 'hidden':      $factory = HiddenFactory;       break;
         }
 
         if (!$factory) {
