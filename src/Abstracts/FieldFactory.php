@@ -9,7 +9,9 @@
 
 namespace Ozone\ThemeOptions\Abstracts;
 
-abstract class FieldFactory extends ElementFactory
+use Ozone\ThemeOptions\Interfaces\IFactory;
+
+abstract class FieldFactory extends ElementFactory implements IFactory
 {
 
 }
