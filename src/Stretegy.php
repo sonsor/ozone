@@ -12,6 +12,7 @@ namespace Ozone\ThemeOptions;
 use Ozone\ThemeOptions\Exceptions\InvalidTypeExcaption;
 use Ozone\ThemeOptions\Factory\CheckboxesFactory;
 use Ozone\ThemeOptions\Factory\CheckboxFactory;
+use Ozone\ThemeOptions\Factory\HiddenFactory;
 use Ozone\ThemeOptions\Factory\RadioFactory;
 use Ozone\ThemeOptions\Factory\SelectFactory;
 use Ozone\ThemeOptions\Factory\TextAreaFactory;
@@ -72,8 +73,11 @@ class Stretegy implements IStretegy
             case 'textarea':
                 $factory = TextAreaFactory;
                 break;
-            case 'selet':
+            case 'select':
                 $factory = SelectFactory;
+                break;
+            case 'hidden':
+                $factory = HiddenFactory;
                 break;
         }
 
